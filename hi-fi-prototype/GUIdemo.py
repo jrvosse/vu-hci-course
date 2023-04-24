@@ -88,6 +88,7 @@ Button(tool_bar,  text="spider",  command=lambda:setcursor("spider")).grid(row=1
 Button(tool_bar,  text="clock",  command=lambda:setcursor("clock")).grid(row=2,  column=1,  padx=5,  pady=5,  sticky='wens')
 
 #Note that we did not assign the buttons to variables as we do not need to use them again
+
 #Many of the widgets below on the other hand we do need again!
 Label(right_frame, text="Enter your birthday").grid(row=0, column=0, columnspan=3, sticky="wens")
 #manually setting the size of widgets can be important as default sizes might be too large or
@@ -100,15 +101,21 @@ mmentry = Entry(right_frame,width=entrywidth)
 mmentry.grid(row=1, column=1, padx=5, pady=5)
 yyentry = Entry(right_frame, width=entrywidth)
 yyentry.grid(row=1, column=2, padx=5, pady=5)
+
 #We want to have a default value in these fields as instruction
 #Generally if you don't know how to do something, google can help
 #e.g. "tkinter Entry set value"
 ddentry.insert(-1,'dd')
 mmentry.insert(-1,'mm')
 yyentry.insert(-1,'yyyy')
+
+# Button calling agecalc() function above
 Button(right_frame, text="calculate age", command=agecalc).grid(row=2,column=1,columnspan=2,padx=5, pady=5)
+
+# Label to displaty result
 displayage=Label(right_frame, text="This will show your age")
 displayage.grid(row=3, column=0, columnspan=3, sticky="wens")
+
 clearing=Label(right_frame, text="Hover to clear", padx=5, pady=5, relief=RAISED)
 clearing.grid(row=4, column=0, columnspan=3, sticky="wens")
 clearing.config(bg="Green")
