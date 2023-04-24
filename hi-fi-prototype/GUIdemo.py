@@ -12,12 +12,8 @@ from datetime import date
 # We set some globals and define a function for consistent logging including timestamps
 def logaction(logtext):
     #appends a line with logtext to the logfile, adds how long running the experiment it is in minutes and seconds.
-    ct=datetime.timestamp(datetime.now())-starttime
-    #determine minutes and seconds, another divmod could be used to also include hours
-    m, s = divmod(int(ct), 60)
-    #stringformating is used to nicely display the timestamps
-    timestr = f'{m:02d}:{s:02d}'
-    logfile.write(timestr + " " + logtext + "\n")
+    delta = datetime.now() - startdatetime
+    logfile.write(str(delta) + " " + logtext + "\n")
     
 # of user interction
 # Getting the current date and time for the logging
